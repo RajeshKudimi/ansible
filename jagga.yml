@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: true
+  become_user: root
+  connection: ssh
+  vars_files:
+    - sub.yml
+  tasks:
+          - name: creating ten files
+            file: dest=/opt/{{item}} state=touch
+            with_items: 
+              - ravi.txt
+              - raji.txt
+              - jagga.txt
+
+
