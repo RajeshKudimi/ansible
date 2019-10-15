@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: true
+  connection: ssh
+  become_user: root
+  tasks:
+    - name: include tasks
+      include: sub1.yml
+    - name: include task
+      include: sub2.yml
+      tags:
+        - tag1      
